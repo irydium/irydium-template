@@ -1,0 +1,16 @@
+{
+  "name": "irydium-template",
+  "version": "1.0.0",
+  "description": "Irydium Template",
+  "private": true,
+  "scripts": {
+    "dev": "irmd-viewer ./index.md",
+    "build": "irmd-compile ./index.md > index.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@irydium/compiler": "0.0.9",
+    "@irydium/viewer": "0.0.9"
+  }
+}
