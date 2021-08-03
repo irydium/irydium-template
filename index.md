@@ -29,15 +29,22 @@ inputs: [ big_mac_raw ]
 ---
 const dt = aq.fromCSV(await big_mac_raw.text());
 // re-group data in a form that plotly expects (fixme: could probably do this in a more elegant way with arquero)
-return Object.entries(dt.select(['date', 'name', 'dollar_price']).objects().reduce((acc, {name, date, dollar_price}) => {
-  if (!acc[name]) {
-    acc[name] = [];
-  }
-  acc[name].push({date, dollar_price});
-  return acc;
-}, {})).map(([name, values]) => {
-  return {name, x: values.map(v=>v.date), y: values.map(v=>v.dollar_price)}
-});
+return Object.entries(
+  (dt.groupby('name')
+    .count()
+    .select('name')
+    .slice(0, 10)
+    .join(dt.select(['date', 'name', 'dollar_price']))
+    .objects())
+  .reduce((acc, {name, date, dollar_price}) => {
+    if (!acc[name]) {
+      acc[name] = [];
+    }
+    acc[name].push({date, dollar_price});
+    return acc;
+  }, {})).map(([name, values]) => {
+    return {name, x: values.map(v=>v.date), y: values.map(v=>v.dollar_price)}
+  });
 ```
 
 <Plotly data={big_mac_data_grouped} />
