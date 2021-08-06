@@ -10,8 +10,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@irydium/compiler": "0.0.10",
-    "@irydium/viewer": "0.0.10"
+    "@irydium/compiler": "^0.0.12",
+    "@irydium/viewer": "^0.0.13"
   },
   "dependencies": {
     "remark-parse": "^9.0.0"
