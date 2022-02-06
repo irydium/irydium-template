@@ -8,9 +8,9 @@
     "build": "irmd-compile ./index.md > index.html"
   },
   "author": "",
-  "license": "ISC",
+  "license": "",
   "devDependencies": {
-    "@irydium/compiler": "^0.0.14",
-    "@irydium/viewer": "^0.0.14"
+    "@irydium/compiler": "^0.0.18",
+    "@irydium/viewer": "^0.0.18"
   }
 }
