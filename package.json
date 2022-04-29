@@ -11,6 +11,6 @@
   "license": "",
   "devDependencies": {
     "@irydium/compiler": "^0.0.19",
-    "@irydium/viewer": "^0.0.19"
+    "@irydium/viewer": "^0.0.20"
   }
 }
